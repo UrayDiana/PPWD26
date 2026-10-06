@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil dan Keranjang</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 40px 20px;
+            background: #edf1ea;
+            color: #333;
+        }
+
+        #keranjang { display: none; }
+
+        .profile, .cart {
+            background: white;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #3c503c22;
+        }
+
+        .profile {
+            max-width: 520px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #55745b, #8da58b);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .foto {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: white;
+            color: #607c63;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        #profileName { margin: 0 0 7px; }
+
+        .content { padding: 25px; }
+
+        .data-profil {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .info-box, .pesan-box {
+            background: #f5f7f2;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .info-box small {
+            color: #607c63;
+            font-weight: bold;
+        }
+
+        .info-box p {
+            margin: 6px 0 0;
+            font-size: 13px;
+            word-break: break-word;
+        }
+
+        .tombol-profil {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 18px 0;
+        }
+
+        button {
+            border: 0;
+            padding: 10px;
+            border-radius: 8px;
+            background: #607c63;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover { background: #48604c; }
+
+        .pesan-box {
+            text-align: center;
+        }
+
+        .pesan-box h2 {
+            color: #607c63;
+            font-size: 20px;
+            margin: 0 0 6px;
+        }
+
+        .pesan-box p {
+            font-size: 13px;
+            color: #777;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccd5c9;
+            border-radius: 7px;
+        }
+
+        #contactForm,
+        #errNama, #errEmail, #errPesan,
+        #successMessage { display: none; }
+
+        .cart {
+            max-width: 700px;
+            padding: 25px;
+        }
+
+        .produk-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .produk {
+            background: #f7f8f4;
+            padding: 13px;
+            border: 1px solid #dce3d8;
+            border-radius: 10px;
+        }
+
+        .produk span {
+            display: block;
+            color: #607c63;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .produk button { width: 100%; }
+
+        .item-cart {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-cart b, #total { color: #607c63; }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px;
+            margin-top: 12px;
+            background: #eef3eb;
+            border-radius: 8px;
+        }
+
+        #kembali {
+            background: white;
+            color: #607c63;
+            border: 1px solid #607c63;
+        }
+
+        #batal, #batalPemesanan { background: #8d968c; }
+
+        .popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #28322873;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-pesanan {
+            width: 380px;
+            max-width: 90%;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .form-pesanan h3 {
+            text-align: center;
+            color: #607c63;
+        }
+
+        @media(max-width:600px) {
+            .header { flex-direction: column; text-align: center; }
+            .data-profil, .tombol-profil { grid-template-columns: 1fr; }
+            .produk-list { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="profil"></div>
+<div id="keranjang"></div>
+
+<script>
+    $('#profil').load('profil.html');
+    $('#keranjang').load('keranjang.html');
+
+    $(document).on('click', '#btnKeranjang', function() {
+        $('#profil').hide();
+        $('#keranjang').fadeIn();
+    });
+
+    $(document).on('click', '#kembali', function() {
+        $('#keranjang').hide();
+        $('#profil').fadeIn();
+    });
+</script>
+
+</body>
+</html>
