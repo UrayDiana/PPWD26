@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keranjang Bahagia</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #edf1ea;
+            padding: 30px;
+        }
+
+        .cart {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        h1, h2 {
+            color: #607c63;
+        }
+
+        .produk-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .produk, .item {
+            padding: 12px;
+            background: #f5f7f2;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .produk button {
+            width: 100%;
+        }
+
+        button {
+            border: 0;
+            padding: 9px;
+            border-radius: 7px;
+            background: #607c63;
+            color: white;
+            cursor: pointer;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #eef3eb;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #0006;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 350px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 9px;
+            margin: 6px 0;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            margin-top: 8px;
+        }
+
+        #batalForm {
+            background: #8d968c;
+        }
+
+        @media (max-width: 600px) {
+            .produk-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="cart">
+
+    <h1>Keranjang Bahagia</h1>
+
+    <div class="produk-list" id="produk"></div>
+
+    <h2>Pesanan</h2>
+
+    <div id="daftar">
+        Keranjang masih kosong.
+    </div>
+
+    <div class="total">
+        <b>Total</b>
+        <b id="total">Rp 0</b>
+    </div>
+
+    <br>
+
+    <button id="checkout">Checkout</button>
+    <button id="batal">Batalkan Pesanan</button>
+    <button id="kembali">Kembali ke Profil</button>
+
+    <h2>Riwayat Pesanan</h2>
+
+    <div id="riwayat">
+        Belum ada riwayat.
+    </div>
+
+</div>
+
+<div id="popup">
+
+    <div class="form">
+
+        <h2>Data Pemesanan</h2>
+
+        <input type="text" id="cartNama" placeholder="Nama">
+
+        <input type="text" id="cartAlamat" placeholder="Alamat">
+
+        <input type="text" id="cartTelepon" placeholder="No. Telepon">
+
+        <button id="kirim">Konfirmasi Pesanan</button>
+
+        <button id="batalForm">Batalkan Checkout</button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let produk = [
+    ['Beras', 60000],
+    ['Susu', 20000],
+    ['Gula', 25000],
+    ['Telur', 2000],
+    ['Minyak', 23000],
+    ['Mi Instan', 5000],
+    ['Kopi', 10000],
+    ['Teh', 6000]
+];
+
+let keranjang = [];
+let total = 0;
+
+produk.forEach(function(p) {
+
+    $('#produk').append(
+        '<div class="produk">' +
+        '<b>' + p[0] + '</b><br>' +
+        'Rp ' + p[1].toLocaleString('id-ID') +
+        '<br><br>' +
+        '<button class="tambah" ' +
+        'data-nama="' + p[0] + '" ' +
+        'data-harga="' + p[1] + '">' +
+        'Tambah</button>' +
+        '</div>'
+    );
+
+});
+
+$(document).on('click', '.tambah', function() {
+
+    let nama = $(this).data('nama');
+    let harga = Number($(this).data('harga'));
+    let ditemukan = false;
+
+    keranjang.forEach(function(p) {
+
+        if (p.nama == nama) {
+            p.jumlah++;
+            ditemukan = true;
+        }
+
+    });
+
+    if (!ditemukan) {
+        keranjang.push({
+            nama: nama,
+            harga: harga,
+            jumlah: 1
+        });
+    }
+
+    tampilkanKeranjang();
+
+});
+
+function tampilkanKeranjang() {
+
+    $('#daftar').html('');
+    total = 0;
+
+    if (keranjang.length == 0) {
+
+        $('#daftar').text('Keranjang masih kosong.');
+
+    } else {
+
+        keranjang.forEach(function(p) {
+
+            let subtotal = p.harga * p.jumlah;
+            total += subtotal;
+
+            $('#daftar').append(
+                '<div class="item">' +
+                p.nama + ' ' + p.jumlah + 'x ' +
+                '<b>Rp ' +
+                subtotal.toLocaleString('id-ID') +
+                '</b></div>'
+            );
+
+        });
+
+    }
+
+    $('#total').text(
+        'Rp ' + total.toLocaleString('id-ID')
+    );
+}
+
+$('#checkout').click(function() {
+
+    if (keranjang.length == 0) {
+        alert('Keranjang masih kosong.');
+        return;
+    }
+
+    $('#popup').css('display', 'flex');
+
+});
+
+$('#kirim').click(function() {
+
+    let nama = $('#cartNama').val().trim();
+    let alamat = $('#cartAlamat').val().trim();
+    let telepon = $('#cartTelepon').val().trim();
+
+    if (nama == '' || alamat == '' || telepon == '') {
+        alert('Lengkapi data terlebih dahulu.');
+        return;
+    }
+
+    let jumlah = 0;
+
+    keranjang.forEach(function(p) {
+        jumlah += p.jumlah;
+    });
+
+    let riwayat =
+        JSON.parse(localStorage.getItem('riwayat')) || [];
+
+    riwayat.push({
+        tanggal: new Date().toLocaleDateString('id-ID'),
+        jumlah: jumlah,
+        total: total
+    });
+
+    localStorage.setItem(
+        'riwayat',
+        JSON.stringify(riwayat)
+    );
+
+
+    alert('Pesanan berhasil dibuat!');
+
+    keranjang = [];
+    total = 0;
+
+    tampilkanKeranjang();
+    tampilkanRiwayat();
+
+    $('#cartNama').val('');
+    $('#cartAlamat').val('');
+    $('#cartTelepon').val('');
+
+    $('#popup').hide();
+
+});
+
+$('#batal').click(function() {
+
+    keranjang = [];
+    tampilkanKeranjang();
+
+});
+
+$('#batalForm').click(function() {
+
+    $('#cartNama').val('');
+    $('#cartAlamat').val('');
+    $('#cartTelepon').val('');
+
+    $('#popup').hide();
+
+});
+
+function tampilkanRiwayat() {
+
+    let data =
+        JSON.parse(localStorage.getItem('riwayat')) || [];
+
+    $('#riwayat').html('');
+
+    if (data.length == 0) {
+
+        $('#riwayat').text('Belum ada riwayat.');
+
+    } else {
+
+        data.forEach(function(p) {
+
+            $('#riwayat').append(
+                '<div class="item">' +
+                p.tanggal + ' - ' +
+                p.jumlah + ' barang ' +
+                '<b>Rp ' +
+                p.total.toLocaleString('id-ID') +
+                '</b></div>'
+            );
+
+        });
+
+    }
+}
+
+tampilkanRiwayat();
+
+</script>
+
+</body>
+</html>
