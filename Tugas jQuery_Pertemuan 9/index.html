@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumb - Cake Shop </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🍰 <span>Sweet  Crumb</span></div>
+
+    <nav>
+        <button class="filter-btn active" data-category="all">Semua</button>
+        <button class="filter-btn" data-category="cake">Cake</button>
+        <button class="filter-btn" data-category="cupcake">Cupcake</button>
+        <button class="filter-btn" data-category="dessert">Dessert</button>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="history-btn" onclick="bukaRiwayat()">
+            📋 Riwayat
+        </button>
+
+        <button class="cart-btn" onclick="bukaKeranjang()">
+            🛒 <span>Keranjang</span>
+            <b id="cartCount">0</b>
+        </button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="hero-small">WELCOME TO SWEET CRUMB</p>
+
+        <h1>
+            Kelezatan Manis<br>
+            di Setiap Gigitan
+        </h1>
+
+        <p>
+            Nikmati berbagai cake, cupcake, dan dessert
+            lezat yang dibuat dengan bahan pilihan.
+        </p>
+
+        <button class="hero-btn" onclick="scrollKeProduk()">
+            Lihat Produk
+        </button>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+            alt="Cake Sweet Crumb">
+    </div>
+</section>
+
+<main id="produk">
+
+    <div class="section-title">
+        <p>OUR MENU</p>
+        <h2>Produk Sweet Crumb</h2>
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+
+</main>
+
+<aside id="cartSidebar" class="cart-sidebar">
+
+    <div class="cart-header">
+        <h2>🛒 Keranjang </h2>
+
+        <button class="close-btn" onclick="tutupKeranjang()">
+            ×
+        </button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+        <div class="empty-cart">
+            Keranjang masih kosong 🍰
+        </div>
+    </div>
+
+    <div class="cart-summary">
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">Rp 0</strong>
+        </div>
+
+        <div class="summary-row discount-row">
+            <span>Diskon 10%</span>
+            <strong id="discount">Rp 0</strong>
+        </div>
+
+        <div class="summary-total">
+            <span>Total</span>
+            <strong id="total">Rp 0</strong>
+        </div>
+
+        <button class="checkout-btn" onclick="mulaiCheckout()">
+            Checkout
+        </button>
+
+    </div>
+</aside>
+
+<div id="overlay" class="overlay" onclick="tutupSemua()"></div>
+
+<!-- FORM  PEMBELI -->
+<div id="buyerModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="tutupBuyerModal()">
+            ×
+        </button>
+
+        <div class="modal-title">
+            <span>🧁</span>
+            <h2>Data Pembeli</h2>
+            <p>Isi data sebelum menyelesaikan pesanan.</p>
+        </div>
+
+        <form id="buyerForm">
+
+            <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <textarea
+                    id="alamat"
+                    rows="3"
+                    placeholder="Masukkan alamat lengkap"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="noHp">Nomor HP</label>
+                <input
+                    type="tel"
+                    id="noHp"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Simpan & Checkout
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<!-- RIWAYAT -->
+<div id="historyModal" class="modal">
+
+    <div class="modal-box history-box">
+
+        <button class="modal-close" onclick="tutupRiwayat()">
+            ×
+        </button>
+
+        <div class="modal-title">
+            <span>📋</span>
+            <h2>Riwayat Transaksi</h2>
+            <p>Daftar transaksi yang tersimpan.</p>
+        </div>
+
+        <div id="historyList"></div>
+
+        <button
+            class="clear-history-btn"
+            onclick="hapusSemuaRiwayat()"
+        >
+            🗑 Hapus Semua Riwayat
+        </button>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">
+    Produk berhasil ditambahkan 🧁
+</div>
+
+<footer>
+    <div class="footer-logo">🍰 Sweet Crumb</div>
+
+    <p>
+        Dibuat dengan ❤️ untuk pecinta dessert.
+    </p>
+
+    <small>© 2026 Sweet Crumb</small>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
