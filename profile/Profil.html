@@ -1,0 +1,126 @@
+<div class="profile" id="profileCard">
+
+    <div class="header">
+        <div class="foto">UD</div>
+
+        <div>
+            <h1 id="profileName">Diana</h1>
+            <p>Information Systems Student</p>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="data-profil">
+
+            <div class="info-box">
+                <small>Lokasi</small>
+                <p>Pontianak, Indonesia</p>
+            </div>
+
+            <div class="info-box">
+                <small>Email</small>
+                <p>h1101251024@student.untan.ac.id</p>
+            </div>
+
+        </div>
+
+
+        <div class="tombol-profil">
+            <button id="btnGantiNama">Ubah Profil</button>
+            <button id="btnAnimasi">Animasi Profil</button>
+            <button id="btnKeranjang">Keranjang</button>
+        </div>
+
+
+        <div class="pesan-box">
+
+            <h2>Tinggalkan Pesan</h2>
+
+            <p>Silakan isi form jika ingin menghubungi saya.</p>
+
+            <button id="btnPesan">Tampilkan Form</button>
+
+
+            <form id="contactForm">
+
+                <input id="nama" placeholder="Nama Anda">
+                <p id="errNama">Nama minimal 3 karakter</p>
+
+                <input id="email" type="email" placeholder="Email Anda">
+                <p id="errEmail">Email harus diisi</p>
+
+                <input id="pesan" placeholder="Pesan Anda">
+                <p id="errPesan">Pesan harus diisi</p>
+
+                <button type="submit">Kirim Pesan</button>
+
+            </form>
+
+            <p id="successMessage">
+                <b>Pesan berhasil dikirim!</b>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+    $('#btnGantiNama').click(function() {
+        $('#profileName').text('Uray Diana').css('color', '#ffffff');
+    });
+
+    $('#btnGantiNama').hover(function() {
+        $(this).css('background', '#48604c');
+    }, function() {
+        $(this).css('background', '#607c63');
+    });
+
+    $('#btnAnimasi').click(function() {
+        $('#profileCard').fadeOut(300).fadeIn(600);
+    });
+
+    $('#btnPesan').click(function() {
+        $('#contactForm').slideToggle();
+    });
+
+    $('#contactForm').submit(function(e) {
+
+        e.preventDefault();
+
+        let valid = true;
+
+        if ($('#nama').val().trim().length < 3) {
+            $('#errNama').show();
+            valid = false;
+        } else {
+            $('#errNama').hide();
+        }
+
+        if ($('#email').val().trim() == '') {
+            $('#errEmail').show();
+            valid = false;
+        } else {
+            $('#errEmail').hide();
+        }
+
+        if ($('#pesan').val().trim() == '') {
+            $('#errPesan').show();
+            valid = false;
+        } else {
+            $('#errPesan').hide();
+        }
+
+        if (valid) {
+
+            $('#successMessage').fadeIn().delay(2000).fadeOut();
+
+            $('#nama, #email, #pesan').val('');
+        }
+    });
+
+</script>
