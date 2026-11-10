@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechNews ID - Portal Berita Teknologi</title>
+  <!-- Bootstrap 5 CSS via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      border-radius: .5rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" data-page="beranda">TechNews ID</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuUtama" aria-controls="menuUtama" aria-expanded="false" aria-label="Buka menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuUtama">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#" data-page="beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="olahraga">Olahraga</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="kuliner">Kuliner</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="wisata">Wisata</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4 halaman" id="halaman-beranda">
+
+    <!-- ===== HEADLINE UTAMA (HERO) ===== -->
+    <div class="row g-3 mb-4">
+      <div class="col-12">
+        <div class="hero text-white p-4 p-md-5">
+          <span class="badge bg-danger mb-2">Headline</span>
+          <h1 class="display-5 fw-bold">Wisata Alam Nusantara Kembali Ramai, Gunung dan Danau Jadi Favorit</h1>
+          <p class="lead mb-3">Libur panjang membuat pendaki dan pecinta alam memadati destinasi pegunungan dan danau di berbagai daerah.</p>
+          <a href="#" class="btn btn-light">Baca selengkapnya</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== BERITA UTAMA + SIDEBAR ===== -->
+    <div class="row g-4 mb-4">
+      <!-- Berita Utama -->
+      <div class="col-12 col-lg-8">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="h4">Tips Liburan Hemat ke Alam Terbuka Tanpa Ribet</h2>
+            <p class="text-muted small">Oleh Redaksi TechNews ID | 27 Oktober 2026</p>
+            <p>Liburan ke alam tidak harus mahal. Dengan perencanaan yang baik, mulai dari memilih waktu berkunjung, membawa bekal sendiri, sampai patungan transportasi, biaya perjalanan bisa ditekan cukup jauh. Jangan lupa cek cuaca dan bawa perlengkapan yang sesuai.</p>
+            <p>Yang terpenting, jaga kebersihan dan bawa pulang sampahmu agar alam tetap lestari untuk pengunjung berikutnya.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Trending -->
+      <div class="col-12 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-header bg-dark text-white fw-bold">Trending</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Resep nasi goreng rumahan yang selalu enak</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Film lokal yang wajib masuk daftar tontonan</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Latihan ringan 15 menit untuk tubuh lebih bugar</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Cara mengatur uang saku supaya tidak habis sebelum akhir bulan</a></li>
+            <li class="list-group-item"><a href="#" class="text-decoration-none text-dark">Kebiasaan pagi sederhana yang bikin hari lebih produktif</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GRID BERITA TERBARU (4 KARTU) ===== -->
+    <h2 class="h4 mb-3">Berita Terbaru</h2>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title">Derbi Seru Warnai Pekan Ini, Tim Tuan Rumah Unggul Tipis</h3>
+            <p class="card-text small text-muted">Pertandingan berlangsung ketat sejak menit awal hingga peluit akhir.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title">Kuliner Rumahan Naik Daun, Dari Sambal sampai Soto</h3>
+            <p class="card-text small text-muted">Usaha makanan skala rumah tangga makin diminati lewat media sosial.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title">Film Drama Keluarga Tembus Jutaan Penonton</h3>
+            <p class="card-text small text-muted">Cerita yang dekat dengan keseharian membuat penonton betah sampai akhir.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title">Gerakan Tanam Pohon Kampus Ajak Mahasiswa Peduli Lingkungan</h3>
+            <p class="card-text small text-muted">Ratusan bibit ditanam bersama untuk menghijaukan area sekitar.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ===== HALAMAN OLAHRAGA ===== -->
+  <div class="container py-4 halaman" id="halaman-olahraga" hidden>
+    <h2 class="mb-1">Olahraga</h2>
+    <p class="text-muted mb-4">Kabar terbaru dari lapangan dan arena.</p>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Sepak Bola</span>
+            <h3 class="h6 card-title">Derbi Seru Warnai Pekan Ini, Tim Tuan Rumah Unggul Tipis</h3>
+            <p class="card-text small text-muted">Pertandingan berlangsung ketat sejak menit awal hingga peluit akhir.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Bulu Tangkis</span>
+            <h3 class="h6 card-title">Tim Muda Raih Juara di Turnamen Antar Kampus</h3>
+            <p class="card-text small text-muted">Permainan kompak di partai final membawa pulang piala.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Komunitas</span>
+            <h3 class="h6 card-title">Lari Pagi Bersama Jadi Tren di Kalangan Mahasiswa</h3>
+            <p class="card-text small text-muted">Rute santai 5 kilometer cocok untuk pemula yang baru mulai.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HALAMAN KULINER ===== -->
+  <div class="container py-4 halaman" id="halaman-kuliner" hidden>
+    <h2 class="mb-1">Kuliner</h2>
+    <p class="text-muted mb-4">Cerita rasa dari dapur rumahan sampai warung favorit.</p>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Usaha Rumahan</span>
+            <h3 class="h6 card-title">Kuliner Rumahan Naik Daun, Dari Sambal sampai Soto</h3>
+            <p class="card-text small text-muted">Usaha makanan skala rumah tangga makin diminati lewat media sosial.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Resep</span>
+            <h3 class="h6 card-title">Resep Nasi Goreng Rumahan yang Selalu Enak</h3>
+            <p class="card-text small text-muted">Bumbu sederhana dengan api besar kunci aroma yang menggugah selera.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Minuman</span>
+            <h3 class="h6 card-title">Kopi Susu Lokal Makin Digemari Anak Muda</h3>
+            <p class="card-text small text-muted">Harga bersahabat dan rasa konsisten membuatnya laris di mana-mana.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HALAMAN WISATA ===== -->
+  <div class="container py-4 halaman" id="halaman-wisata" hidden>
+    <h2 class="mb-1">Wisata</h2>
+    <p class="text-muted mb-4">Inspirasi liburan ke alam dan desa wisata.</p>
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Alam</span>
+            <h3 class="h6 card-title">Wisata Alam Nusantara Kembali Ramai, Gunung dan Danau Jadi Favorit</h3>
+            <p class="card-text small text-muted">Libur panjang membuat pendaki memadati berbagai destinasi pegunungan.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Tips</span>
+            <h3 class="h6 card-title">Tips Liburan Hemat ke Alam Terbuka Tanpa Ribet</h3>
+            <p class="card-text small text-muted">Atur waktu berkunjung, bawa bekal sendiri, dan patungan transportasi.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge bg-dark mb-2">Desa Wisata</span>
+            <h3 class="h6 card-title">Desa Wisata Tawarkan Pengalaman Menginap di Rumah Warga</h3>
+            <p class="card-text small text-muted">Wisatawan bisa belajar kegiatan sehari-hari dan mencicipi masakan setempat.</p>
+            <a href="#" class="btn btn-sm btn-primary">Baca</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HALAMAN KONTAK ===== -->
+  <div class="container py-4 halaman" id="halaman-kontak" hidden>
+    <h2 class="mb-1">Kontak</h2>
+    <p class="text-muted mb-4">Punya saran atau ingin mengirim tulisan? Hubungi redaksi.</p>
+    <div class="row g-3">
+      <div class="col-12 col-lg-8">
+        <div class="card shadow-sm"><div class="card-body">
+          <h3 class="h6">Redaksi TechNews ID</h3>
+          <p class="mb-1">Email: redaksi@technewsid.example</p>
+          <p class="mb-1">Telepon: (0561) 000-0000</p>
+          <p class="mb-0">Jam layanan: Senin - Jumat, 08.00 - 16.00</p>
+        </div></div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card shadow-sm"><div class="card-body">
+          <h3 class="h6">Kirim Tulisan</h3>
+          <p class="small text-muted mb-0">Kirim naskah beritamu lewat email redaksi dengan subjek "Naskah".</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2026 TechNews ID. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle (untuk tombol toggler navbar) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Menu navbar: tampilkan halaman sesuai menu yang diklik
+    function tampilkan(nama) {
+      document.querySelectorAll('.halaman').forEach(function (h) {
+        h.hidden = (h.id !== 'halaman-' + nama);
+      });
+      document.querySelectorAll('.nav-link').forEach(function (l) {
+        l.classList.toggle('active', l.dataset.page === nama);
+      });
+      window.scrollTo(0, 0);
+      var menu = document.getElementById('menuUtama');
+      if (window.bootstrap && menu.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
+    }
+    document.querySelectorAll('[data-page]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        tampilkan(a.dataset.page);
+      });
+    });
+  </script>
+</body>
+</html>
